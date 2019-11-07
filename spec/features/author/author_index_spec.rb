@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 describe "index listing all authors" do
+
+  
   it "should render without error" do
     visit authors_path
   end
@@ -19,11 +21,12 @@ describe "index listing all authors" do
   end
 
   it "should have a link to delete an author" do
+    @testAuthor = FactoryBot.create :author
     visit authors_path
     # save current author count
     author_count_before = Author.count
     # just delete first author found
-    find_link("Delete author").click
+    click_link 'Delete'
     # check if author count has decreased
     expect(Author.count).to be < author_count_before
   end
