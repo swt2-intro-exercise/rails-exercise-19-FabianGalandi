@@ -22,6 +22,15 @@ describe Paper, type: :model do
     expect(paper).to_not be_valid
   end
 
+  it "should not validate without venue" do
+    paper = Paper.new( :title => title, :year => year)
+    expect(paper).to_not be_valid
+  end
+  it "should not validate without year" do
+    paper = Paper.new( :title => title, :venue => venue)
+    expect(paper).to_not be_valid
+  end
+
   it "should only validate with numerical year" do
     paper = Paper.new( :title => title, :venue => venue, :year => title)
     expect(paper).to_not be_valid
