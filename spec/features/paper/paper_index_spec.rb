@@ -18,7 +18,7 @@ describe "Paper index page", type: :feature do
     visit papers_path
   end
 
-  it "should show allow filtering papers by year" do
+  it "should allow filtering papers by year" do
     visit papers_path
 
     expect(page).to have_text(@test1.title)
@@ -35,5 +35,4 @@ describe "Paper index page", type: :feature do
     expect(page).to have_text(@test2.title)
   end
 
-end 
 end
