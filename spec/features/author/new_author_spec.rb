@@ -19,7 +19,7 @@ describe "New author page", type: :feature do
     page.fill_in 'author[first_name]', with: 'Test'
     page.fill_in 'author[homepage]', with: 'https://www.test.com'
     find('input[type="submit"]').click
-    expect(page).to have_text('Error while saving, no last name was submitted')
+    expect(page).to have_text('error')
   end
 
 end
