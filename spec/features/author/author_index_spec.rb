@@ -18,4 +18,14 @@ describe "index listing all authors" do
     expect(page).to have_link 'New', href: new_author_path
   end
 
+  it "should have a link to delete an author" do
+    visit authors_path
+    # save current author count
+    author_count_before = Author.count
+    # just delete first author found
+    find_link("Delete author").click
+    # check if author count has decreased
+    expect(Author.count).to be < author_count_before
+  end
+
 end
