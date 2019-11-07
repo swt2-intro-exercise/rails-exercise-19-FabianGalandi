@@ -11,7 +11,7 @@ describe Paper, type: :model do
     paper = Paper.new()
     paper.title = title
     paper.venue = venue 
-    paper.title = title
+    paper.year = year
     expect(paper.title).to eq(title)
     expect(paper.venue).to eq(venue)
     expect(paper.year).to eq(year)
