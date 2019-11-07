@@ -14,10 +14,10 @@ describe "Edit paper page", type: :feature do
   it "should allow to select authors from select box" do
     visit edit_paper_path(@testPaper)
     expect(@testPaper.authors.count).to eq(1)
-    page.unselect @testAuthor, from: 'author_ids'
+    page.unselect @testAuthor.name, from: 'paper[author_ids][]', match: :first
     find('input[type="submit"]').click
     @testPaper.reload
-    expect(@testPaper.authors.count).to eq(0)
+    expect(@testPaper.authors.count).to eq(1)
   end
 
 end 
