@@ -16,8 +16,8 @@ describe "Edit author page", type: :feature do
     page.fill_in 'author[last_name]', with: @testAuthor.first_name
     page.fill_in 'author[homepage]', with: 'http://www.test.com'
     find('input[type="submit"]').click
-    @alan.reload
-    expect(@alan.homepage).to be 'http://www.test.com'
+    @testAuthor.reload
+    expect(@testAuthor.homepage).to eq('http://www.test.com')
   end
 
 end 
