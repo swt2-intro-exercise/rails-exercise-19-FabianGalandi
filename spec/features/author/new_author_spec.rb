@@ -13,4 +13,13 @@ describe "New author page", type: :feature do
   expect(page).to have_field('author[last_name]')
   expect(page).to have_field('author[homepage]')
   end
+
+  it "should show validation errors if last name is ommited" do
+    visit new_author_path
+    page.fill_in 'author[first_name]', with: 'Test'
+    page.fill_in 'author[homepage]', with: 'https://www.test.com'
+    find('input[type="submit"]').click
+    expect(page).to have_text('Error while saving, no last name was submitted')
+  end
+
 end
