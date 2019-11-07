@@ -35,4 +35,10 @@ describe Paper, type: :model do
     paper = Paper.new( :title => title, :venue => venue, :year => title)
     expect(paper).to_not be_valid
   end
+
+  it "should have and belong to many authors" do
+    paper = Paper.new( :title => title, :venue => venue, :year => title)
+    #it should have an empty list of authors
+    expect(paper.authors.count).to eq(0)
+  end
 end
