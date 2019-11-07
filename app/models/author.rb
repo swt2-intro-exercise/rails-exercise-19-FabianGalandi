@@ -8,4 +8,6 @@ class Author < ApplicationRecord
     def name
       [first_name, last_name].join(' ')
     end
+
+    has_and_belongs_to_many :papers
 end
